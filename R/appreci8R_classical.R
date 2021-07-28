@@ -271,7 +271,7 @@ annotate <- function(output_folder,caller_name,normalized_calls_g,locations,
                 }
                 counter_located<-counter_located+1
             }
-            if(!is.na(annotated_calls[k,6])&&!is.na(consequences)){
+            if(!is.na(annotated_calls[k,6])&&all(!is.na(consequences))){
                 for(j in seq_along(strsplit(annotated_calls[k,6],",")[[1]])){
                     if(counter_predicted>length(ranges(predicted))||
                        strsplit(annotated_calls[k,6],",")[[1]][j]!="coding"){
@@ -392,7 +392,7 @@ annotate <- function(output_folder,caller_name,normalized_calls_g,locations,
             if(is.na(annotated_calls[k,6])){
                 keep[k]<-FALSE
             }
-            if(!is.null(consequences)&&
+            if(all(!is.null(consequences))&&
                !is.na(annotated_calls[k,6])&&
                sum(strsplit(annotated_calls[k,6],",")[[1]]=="coding")>0&&
                (is.na(annotated_calls[k,8])||
