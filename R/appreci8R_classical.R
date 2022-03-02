@@ -1040,14 +1040,14 @@ determineCharacteristics <- function(output_folder,frequency_calls_g,predict,
                         if(nchar(results[i,4])>nchar(results[i,5])){
                             if(length(grep(substr(results[i,4],2,
                                                   nchar(results[i,4])),
-                                           ncbi[j,9]))>0){
+                                           ncbi[j,14]))>0){
                                 results[i,6]<-ncbi[j,1]
                             }
                         }
                         if(nchar(results[i,4])<nchar(results[i,5])){
                             if(length(grep(substr(results[i,5],2,
                                                   nchar(results[i,5])),
-                                           ncbi[j,9]))>0){
+                                           ncbi[j,14]))>0){
                                 results[i,6]<-ncbi[j,1]
                             }
                         }
@@ -1151,8 +1151,8 @@ determineCharacteristics <- function(output_folder,frequency_calls_g,predict,
     }
     for(i in seq_along(results[,1])){
         if(!is.na(results[i,6])){
-            suppressWarnings(results$dbSNP_MAF[i]<-as.numeric(max(ncbi[ncbi[,1]==results[i,6],10])))
-            if(sum(ncbi[ncbi[,1]==results[i,6],9]==results[i,4],na.rm=TRUE)>0){
+            suppressWarnings(results$dbSNP_MAF[i]<-as.numeric(max(ncbi[ncbi[,1]==results[i,6],15])))
+            if(sum(ncbi[ncbi[,1]==results[i,6],14]==results[i,4],na.rm=TRUE)>0){
                 if(!is.na(results$dbSNP_MAF[i])){
                     results$dbSNP_MAF[i]<-1-results$dbSNP_MAF[i]
                 }
