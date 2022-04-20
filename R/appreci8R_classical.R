@@ -927,7 +927,7 @@ determineCharacteristics <- function(output_folder,frequency_calls_g,predict,
                                     IUPAC_CODE_MAP[snp_info$alleles_as_ambig]))==0&&
                         length(grep(as.character(complement(DNAString(results[i,5]))),
                                     IUPAC_CODE_MAP[snp_info$alleles_as_ambig])>0))){
-                        results[i,6]<-snp_info$RefSNP_id
+                        results[i,6]<-snp_info$RefSNP_id[which.min(as.numeric(gsub("rs","",snp_info$RefSNP_id)))]
                     }
                 }
 
