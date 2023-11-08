@@ -1150,7 +1150,8 @@ determineCharacteristics <- function(output_folder,frequency_calls_g,predict,
     #    }
     #}
     for(i in seq_along(results[,1])){
-        if(!is.na(results[i,6])){
+        hallo<-F
+        if(!is.na(results[i,6])&&hallo==T){
             suppressWarnings(results$dbSNP_MAF[i]<-as.numeric(max(ncbi[ncbi[,1]==results[i,6],15])))
             if(sum(ncbi[ncbi[,1]==results[i,6],14]==results[i,4],na.rm=TRUE)>0){
                 if(!is.na(results$dbSNP_MAF[i])){
