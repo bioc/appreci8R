@@ -737,6 +737,7 @@ determineCharacteristics <- function(output_folder,frequency_calls_g,predict,
     #6. Determine CharacteristicsEvaluate Coverage and BQ
     message("6. Determine Extended Set of Characteristics (databases)")
     message("-> Downloading databases ")
+    clinvarDB<-FALSE
     results<-data.frame(frequency_calls[,c(1:5)])
     results<-cbind(results,dbSNP=NA,dbSNP_MAF=NA)
     snps<-SNPlocs.Hsapiens.dbSNP144.GRCh37
