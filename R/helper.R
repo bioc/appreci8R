@@ -474,7 +474,7 @@ exportAsGRanges<-function(input){
 
 importAsDataFrame<-function(input){
     temp<-as.data.frame(input)
-    output<-cbind(SampleID=temp[,6],Chr=temp[,1],Pos=temp[,2],
+    output<-cbind(SampleID=as.character(temp[,6]),Chr=temp[,1],Pos=temp[,2],
                   temp[,7:length(temp[1,])])
     return(output)
 }
